@@ -3041,6 +3041,9 @@ void SpellMgr::LoadSpellInfoCorrections()
             case 53096: // Quetz'lun's Judgment
                 spellInfo->MaxAffectedTargets = 1;
                 break;
+            case 24259: // Spell Lock Silence
+                spellInfo->Speed = 80;
+                break;
             case 42730:
                 spellInfo->Effects[EFFECT_1].TriggerSpell = 42739;
                 break;

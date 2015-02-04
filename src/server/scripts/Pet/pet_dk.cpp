@@ -49,6 +49,7 @@ class npc_pet_dk_ebon_gargoyle : public CreatureScript
             {
                 // Not needed to be despawned now
                 _despawnTimer = 0;
+				_TargetCheck = 0;
 
                 CasterAI::InitializeAI();
                 uint64 ownerGuid = me->GetOwnerGUID();
@@ -57,9 +58,9 @@ class npc_pet_dk_ebon_gargoyle : public CreatureScript
 
                 // Find victim of Summon Gargoyle spell
                 std::list<Unit*> targets;
-                Trinity::AnyUnfriendlyUnitInObjectRangeCheck u_check(me, me, 30.0f);
+                Trinity::AnyUnfriendlyUnitInObjectRangeCheck u_check(me, me, 5.0f);
                 Trinity::UnitListSearcher<Trinity::AnyUnfriendlyUnitInObjectRangeCheck> searcher(me, targets, u_check);
-                me->VisitNearbyObject(30.0f, searcher);
+                me->VisitNearbyObject(5.0f, searcher);
                 for (std::list<Unit*>::const_iterator iter = targets.begin(); iter != targets.end(); ++iter)
                     if ((*iter)->GetAura(SPELL_DK_SUMMON_GARGOYLE_1, ownerGuid))
                     {
@@ -119,10 +120,15 @@ class npc_pet_dk_ebon_gargoyle : public CreatureScript
                 }
 
                 CasterAI::UpdateAI(diff);
+				
+                if (_TargetCheck <= diff)
+                    if (me->IsValidAssistTarget(me->GetOwner()))
+                        me->Attack(me->GetOwner()->GetVictim(), false);
             }
 
         private:
            uint32 _despawnTimer;
+		   uint32 _TargetCheck
         };
 
         CreatureAI* GetAI(Creature* creature) const OVERRIDE

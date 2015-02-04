@@ -1448,6 +1448,8 @@ void AddSC_REFORGER_NPC();
 void AddSC_item_enchant_visuals();
 void AddSC_PvP_System();
 void AddSC_npc_lotto();
+void AddSC_npc_supporter();
+void AddSC_Professions_NPC();
 #endif
 
 void AddCustomScripts()
@@ -1468,5 +1470,7 @@ void AddCustomScripts()
 	AddSC_item_enchant_visuals();
 	AddSC_PvP_System();
 	AddSC_npc_lotto();
+	AddSC_npc_supporter();
+	AddSC_Professions_NPC();
 #endif
 }

@@ -26,6 +26,8 @@ set(scripts_STAT_SRCS
 	Custom/enchant_visuals.cpp
 	Custom/killstreak.cpp
 	Custom/lotto.cpp
+	Custom/npc_token.cpp
+	Custom/npc_profession.cpp
 )
 
 message("  -> Prepared: Custom")

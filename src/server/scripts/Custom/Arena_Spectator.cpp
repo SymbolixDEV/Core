@@ -371,7 +371,6 @@ public:
         pPlayer->ADD_GOSSIP_ITEM(GOSSIP_SWORDS_ICON, "Spectate Rated 2v2", GOSSIP_SENDER_MAIN, NPC_SPECTATOR_ACTION_2V2_GAMES);
         pPlayer->ADD_GOSSIP_ITEM(GOSSIP_SWORDS_ICON, "Spectate Rated 3v3", GOSSIP_SENDER_MAIN, NPC_SPECTATOR_ACTION_3V3_GAMES);
         pPlayer->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_SWORDS_ICON, "Spectate Specific Player", GOSSIP_SENDER_MAIN, NPC_SPECTATOR_ACTION_SPECIFIC, "", 0, true);
-		player->ADD_GOSSIP_ITEM(GOSSIP_ICON_TALK, "How to use ArenaSpectator ?", GOSSIP_SENDER_MAIN, GOSSIP_ACTION_INFO_DEF+2);
         pPlayer->SEND_GOSSIP_MENU(DEFAULT_GOSSIP_MESSAGE, pCreature->GetGUID());
         return true;
     }
@@ -383,12 +382,6 @@ public:
         {
 
         }
-			player->PlayerTalkClass->ClearMenus();
-		if (action == GOSSIP_ACTION_INFO_DEF+2)
-		{
-			creature->MonsterWhisper("РЇ Arena Spectator.РџРѕР¶Р°Р»СѓР№СЃС‚Р° РђСЂРµРЅР° РїРµСЂРµРґ РїСЂРѕСЃРјРѕС‚СЂРѕРј Р°СЂРµРЅС‹ РґРѕР±Р°РІРёС‚СЊ СЃРєР°С‡Р°С‚СЊ СЃ РЅР°С€РµРіРѕ СЃР°Р№С‚Р°", player->GetGUID());
-		    player->PlayerTalkClass->SendCloseGossip();
-		}
 
 		return true;
         if (action >= NPC_SPECTATOR_ACTION_5V5_GAMES && action < NPC_SPECTATOR_ACTION_2V2_GAMES)

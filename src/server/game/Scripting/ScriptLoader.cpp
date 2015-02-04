@@ -1439,7 +1439,7 @@ void AddSC_CPWS_Transmogrification();
 void AddSC_tools_commandscript();
 void AddSC_PhasedDueling();
 void AddSC_arena_spectator_script();
-void AddSC_Arena_Scripts();
+//void AddSC_Arena_Scripts();
 void AddSC_npc_welcome();
 void AddSC_at_beastmaster();
 void AddSC_item_repair();
@@ -1461,7 +1461,7 @@ void AddCustomScripts()
     AddSC_tools_commandscript();
 	AddSC_PhasedDueling();
 	AddSC_arena_spectator_script();
-	AddSC_Arena_Scripts();
+//	AddSC_Arena_Scripts();
 	AddSC_npc_welcome();
 	AddSC_at_beastmaster();
 	AddSC_item_repair();

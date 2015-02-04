@@ -1942,7 +1942,7 @@ void Player::InnEnter(time_t time, uint32 mapid, float x, float y, float z)
     time_inn_enter = time;
 }
 
-void Player::SetSelection(uint64 guid)
+/*void Player::SetSelection(uint64 guid)
 {
 	m_curSelection = guid;
 	SetUInt64Value(UNIT_FIELD_TARGET, guid);
@@ -1955,7 +1955,7 @@ void Player::SetSelection(uint64 guid)
 			SendSpectatorAddonMsgToBG(msg);
 		}
 }
-
+*/
 bool Player::BuildEnumData(PreparedQueryResult result, WorldPacket* data)
 {
     //             0               1                2                3                 4                  5                       6                        7
@@ -2953,7 +2953,7 @@ void Player::SendSpectatorAddonMsgToBG(SpectatorAddonMsg msg)
 	if (!HaveSpectators())
 		return;
 
-	GetBattleground()->SendSpectateAddonsMsg(msg);
+//	GetBattleground()->SendSpectateAddonsMsg(msg);
 }
 
 void Player::SetGameMaster(bool on)

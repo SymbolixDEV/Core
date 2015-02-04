@@ -128,7 +128,7 @@ class npc_pet_dk_ebon_gargoyle : public CreatureScript
 
         private:
            uint32 _despawnTimer;
-		   uint32 _TargetCheck
+		   uint32 _TargetCheck;
         };
 
         CreatureAI* GetAI(Creature* creature) const OVERRIDE

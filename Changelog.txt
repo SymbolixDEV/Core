@@ -1,0 +1,34 @@
+1.Implement - Transmogrifcation
+2.Implement - Crossfaction
+3.Fix - Crossfaction(Morph)
+4.Implement - 1vs1 Solo Queue 
+5.Implement - Arena Spectator
+6.Implement - Blizzlike CC Delay
+7.Implement - MultiVendor 5
+8.Implement - Rogue Poison / Shaman enchantments - 1 Week
+9.Implement - Instant Cast Glyphs/Enchants.
+10.Implement Arena Crystal
+11.Implement reason in server restart
+12.Implement Duel Reset
+13.Implement Reforging
+14.Implement Item Enchant Visuals
+15.Fix - Vanish remove combat
+16.Fix - Warlock: Glyph of Succubus - Improved Succubus (Talent).
+17.Fix - Master Call
+18.Fix - Shadowform Cooldown
+19.Fix - Spell Lock Silence
+20.Fix - Spell Reflection
+21.Fix - Hunter's Trap
+22.Fix - Death Grip
+23.Fix - Bladestorm Disarm Bug
+24.Fix - Bladestorm Cyclone Bug
+25.Fix - Hand of Freedom is now usable in CC, Stuns etc.
+26.Fix - Master Call 2
+27.Fix - Anti Magic Zone
+28.Fix - Gargoyle Damage and Haste
+29.Implement - Killstreak
+30.Implement - Lottery NPC
+31.Implement - Beastmastery NPC
+32.Implement - Professions NPC
+33.Implement - Utility Commands
+34.Implement - Token NPC 

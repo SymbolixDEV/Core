@@ -55,7 +55,10 @@ enum DeathKnightSpells
     SPELL_DK_UNHOLY_PRESENCE                    = 48265,
     SPELL_DK_UNHOLY_PRESENCE_TRIGGERED          = 49772,
     SPELL_DK_WILL_OF_THE_NECROPOLIS_TALENT_R1   = 49189,
-    SPELL_DK_WILL_OF_THE_NECROPOLIS_AURA_R1     = 52284
+    SPELL_DK_WILL_OF_THE_NECROPOLIS_AURA_R1     = 52284,
+    SPELL_DK_RAISE_DEAD_NORMAL                  = 46585,
+    SPELL_DK_RAISE_DEAD_IMPROVED                = 52150, // improved with Master of Ghouls talent
+    SPELL_DK_GLYPH_OF_RAISE_DEAD                = 60200
 };
 
 enum DeathKnightSpellIcons
@@ -1244,6 +1247,90 @@ public:
     }
 };
 
+class spell_dk_raise_dead : public SpellScriptLoader
+{
+    public:
+        spell_dk_raise_dead() : SpellScriptLoader("spell_dk_raise_dead") { }
+
+        class spell_dk_raise_dead_SpellScript : public SpellScript
+        {
+            PrepareSpellScript(spell_dk_raise_dead_SpellScript);
+
+            SpellCastResult CheckIfCorpseNear()
+            {
+                Unit* caster = GetCaster();
+                float max_range = 30;
+                WorldObject* unitTarget = NULL;
+                uint32 triggered_spell_id = 0;
+
+                // search for nearby corpse in range
+                std::list<Unit*> targetList;
+                Trinity::AnyDeadUnitSpellTargetInRangeCheck check(caster, max_range, GetSpellInfo(), TARGET_CHECK_DEFAULT);
+                Trinity::UnitListSearcher<Trinity::AnyDeadUnitSpellTargetInRangeCheck> searcher(caster, targetList, check);
+                caster->GetMap()->VisitAll(caster->m_positionX, caster->m_positionY, max_range, searcher);
+
+                // only humanoid and undead corpses are useable for Raise Dead
+                for (std::list<Unit*>::iterator itr = targetList.begin(); itr != targetList.end(); ++itr)
+                {
+                    if ((*itr)->GetCreatureType() == CREATURE_TYPE_HUMANOID || ((Unit*)*itr)->GetCreatureType() == CREATURE_TYPE_UNDEAD)
+                    {
+                        unitTarget = (*itr);
+                        break;
+                    }
+                }
+
+                // check for Master of Ghouls talent
+                if (caster->HasAura(52143))
+                    // summon as pet
+                    triggered_spell_id = SPELL_DK_RAISE_DEAD_IMPROVED;
+                else
+                    // or guardian
+                    triggered_spell_id = SPELL_DK_RAISE_DEAD_NORMAL;
+
+                if (!unitTarget)
+                {
+                    // check for Glyph of Raise Dead
+                    if (caster->HasAura(SPELL_DK_GLYPH_OF_RAISE_DEAD))
+                    {
+                        caster->CastSpell(caster->GetPositionX(),caster->GetPositionY(),caster->GetPositionZ(),triggered_spell_id, true);
+                        return SPELL_CAST_OK;
+                    }
+                    // check for Corpse Dust
+                    else if (((Player*)caster)->HasItemCount(37201, 1))
+                    {
+                        // Line below is bugged, the spell cast teleports the player to its home location, and does not remove corpse dust xD.
+                        /*caster->CastSpell(caster,48289); // spell handling Corpse Dust removal*/
+                        caster->CastSpell(caster->GetPositionX(),caster->GetPositionY(),caster->GetPositionZ(),triggered_spell_id, true);
+                        return SPELL_CAST_OK;
+                    }
+                    else
+                    {
+                        SetCustomCastResultMessage(SPELL_CUSTOM_ERROR_REQUIRES_CORPSE_DUST);
+                        return SPELL_FAILED_CUSTOM_ERROR;
+                    }
+                }
+                else if (unitTarget && unitTarget != caster)
+                {
+                    caster->CastSpell(unitTarget->GetPositionX(),unitTarget->GetPositionY(),unitTarget->GetPositionZ(),triggered_spell_id, true);
+                    return SPELL_CAST_OK;
+                }
+
+                SetCustomCastResultMessage(SPELL_CUSTOM_ERROR_REQUIRES_CORPSE_DUST);
+                return SPELL_FAILED_CUSTOM_ERROR;
+            }
+
+            void Register()
+            {
+                OnCheckCast += SpellCheckCastFn(spell_dk_raise_dead_SpellScript::CheckIfCorpseNear);
+            }
+
+        };
+
+        SpellScript* GetSpellScript() const
+        {
+            return new spell_dk_raise_dead_SpellScript();
+        }
+};
 
 void AddSC_deathknight_spell_scripts()
 {

@@ -32,3 +32,9 @@
 32.Implement - Professions NPC
 33.Implement - Utility Commands
 34.Implement - Token NPC 
+35.Fix Warrior Damage
+	- Fix Compile on Warrior Damage Fix
+36.Fix Glyph of Envenom
+37.Fix Shadowdance
+38.Fix Glyph of Charge
+39.Fix Raise Dead Spell

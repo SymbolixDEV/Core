@@ -32,7 +32,7 @@ public:
         if (KillStreakData[VictimGUID].killstreak >= 3)
         {
             std::ostringstream ss;
-            ss << "|cFF81CF42" << Killer->GetName() << "|r Server Killer Has Ended |cFFFFFFFF" << Victim->GetName() << " !!!! ";
+            ss << "|TInterface/ICONS/Achievement_Arena_2v2_7:30|t |cFF81CF42" << Killer->GetName() << "|r Server Killer Has Ended |cFFFFFFFF" << Victim->GetName() << " !!!! ";
             sWorld->SendServerMessage(SERVER_MSG_STRING, ss.str().c_str());
         }
 
@@ -44,13 +44,13 @@ public:
         if (KillStreakData[KillerGUID].killstreak % 10 == 0) // send killstreak message every 10 kills
         {
             std::ostringstream ss;
-            ss << "|cFF81CF42" << Killer->GetName() << "|r Server Killer Has A KillStreak Of |cFF42A0CF" << KillStreakData[KillerGUID].killstreak << "|r!!!!!";
+            ss << "|TInterface/ICONS/Achievement_Arena_3v3_5:30|t |cFF81CF42" << Killer->GetName() << "|r Server Killer Has A KillStreak Of |cFF42A0CF" << KillStreakData[KillerGUID].killstreak << "|r!!!!!";
             sWorld->SendServerMessage(SERVER_MSG_STRING, ss.str().c_str());
         }
         else if (KillStreakData[KillerGUID].killstreak == 3)
         {
             std::ostringstream ss;
-            ss << "|cFF81CF42" << Killer->GetName() << "|r Server Killer Is On A KillingSpree!!!!!!";
+            ss << "|TInterface\\icons\\ability_hunter_pet_bear:35|t|r |cFF81CF42" << Killer->GetName() << "|r Server Killer Is On A KillingSpree!!!!!!";
             sWorld->SendServerMessage(SERVER_MSG_STRING, ss.str().c_str());
         }
 

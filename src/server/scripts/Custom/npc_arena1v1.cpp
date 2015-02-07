@@ -192,7 +192,7 @@ public:
 			player->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, "Show statistics", GOSSIP_SENDER_MAIN, 4);
 		}
 
-		player->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, "Script Info", GOSSIP_SENDER_MAIN, 8);
+		player->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, "Solo Queue Top 10 Players", GOSSIP_SENDER_MAIN, 8);
 		player->SEND_GOSSIP_MENU(68, me->GetGUID());
 		return true;
 	}
@@ -286,15 +286,24 @@ public:
 
 		case 8: // Script Info
 			{
-				player->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, "Developer: Teiby", GOSSIP_SENDER_MAIN, uiAction);
-				player->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, "Website: www.teiby.de", GOSSIP_SENDER_MAIN, uiAction);
-				player->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, "Version: 2.0", GOSSIP_SENDER_MAIN, uiAction);
-				player->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, "<-- Back", GOSSIP_SENDER_MAIN, 7);
-				player->SEND_GOSSIP_MENU(68, me->GetGUID());
-				return true;
-			}
-			break;
+				{
+				   QueryResult result = CharacterDatabase.Query("SELECT name,rating FROM arena_team WHERE type='1' ORDER BY rating DESC LIMIT 10");
+				   if(!result)
+					   return false;
 
+	 			    Field * fields = NULL;
+	 			    ChatHandler(player->GetSession()).SendSysMessage("|cff4169E1Here are the top 10 1v1 arena teams:|r", player->GetGUID());
+					do
+					{
+						fields = result->Fetch();
+						string arena_name = fields[0].GetString();
+					    uint32 rating = fields[1].GetUInt32();
+					    char msg[250];
+					    snprintf(msg, 250, "Team Name: |cffFFFF00%s|r, Team Rating: %u \n", arena_name.c_str(), rating);
+					    player->MonsterWhisper(msg, player->GetGUID());
+					}while(result->NextRow());
+				}break;
+			}
 		}
 
 		OnGossipHello(player, me);

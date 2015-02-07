@@ -49,7 +49,7 @@ public:
 					player->PlayerTalkClass->SendCloseGossip();
 					break;
 				case HORDE:
-					player->TeleportTo(1, -1563.969971f, -4428.209961f, 7.485660f, 4.788160f);
+					player->TeleportTo(1, 1563.97f, -4428.21f, 7.48566f, 4.78816f);
 					player->PlayerTalkClass->SendCloseGossip();
 					break;
 				}

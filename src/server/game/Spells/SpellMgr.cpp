@@ -3324,6 +3324,10 @@ void SpellMgr::LoadSpellInfoCorrections()
                 spellInfo->Effects[EFFECT_0].TargetB = SpellImplicitTargetInfo(TARGET_UNIT_SRC_AREA_ALLY);
                 spellInfo->Effects[EFFECT_1].TargetB = SpellImplicitTargetInfo(TARGET_UNIT_SRC_AREA_ALLY);
                 break;
+
+            case 50526: // Wandering Plague (DK)
+                spellInfo->AttributesEx4 |= SPELL_ATTR4_FIXED_DAMAGE;
+                break;
             case 57994: // Wind Shear - improper data for EFFECT_1 in 3.3.5 DBC, but is correct in 4.x
                 spellInfo->Effects[EFFECT_1].Effect = SPELL_EFFECT_MODIFY_THREAT_PERCENT;
                 spellInfo->Effects[EFFECT_1].BasePoints = -6; // -5%

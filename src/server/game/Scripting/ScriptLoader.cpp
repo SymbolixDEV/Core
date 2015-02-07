@@ -1450,6 +1450,7 @@ void AddSC_npc_lotto();
 void AddSC_npc_supporter();
 void AddSC_Professions_NPC();
 void AddSC_tc_teleporter();
+void AddSC_npc_arena_setup();
 #endif
 
 void AddCustomScripts()
@@ -1472,5 +1473,6 @@ void AddCustomScripts()
 	AddSC_npc_supporter();
 	AddSC_Professions_NPC();
 	AddSC_tc_teleporter();
+	AddSC_npc_arena_setup();
 #endif
 }

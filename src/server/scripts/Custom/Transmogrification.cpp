@@ -642,17 +642,17 @@ void Transmogrification::LoadConfig(bool reload)
     TokenEntry = uint32(sConfigMgr->GetIntDefault("Transmogrification.TokenEntry", 49426));
     TokenAmount = uint32(sConfigMgr->GetIntDefault("Transmogrification.TokenAmount", 1));
 
-    AllowPoor = sConfigMgr->GetBoolDefault("Transmogrification.AllowPoor", false);
-    AllowCommon = sConfigMgr->GetBoolDefault("Transmogrification.AllowCommon", false);
+    AllowPoor = sConfigMgr->GetBoolDefault("Transmogrification.AllowPoor", true);
+    AllowCommon = sConfigMgr->GetBoolDefault("Transmogrification.AllowCommon", true);
     AllowUncommon = sConfigMgr->GetBoolDefault("Transmogrification.AllowUncommon", true);
     AllowRare = sConfigMgr->GetBoolDefault("Transmogrification.AllowRare", true);
     AllowEpic = sConfigMgr->GetBoolDefault("Transmogrification.AllowEpic", true);
-    AllowLegendary = sConfigMgr->GetBoolDefault("Transmogrification.AllowLegendary", false);
-    AllowArtifact = sConfigMgr->GetBoolDefault("Transmogrification.AllowArtifact", false);
+    AllowLegendary = sConfigMgr->GetBoolDefault("Transmogrification.AllowLegendary", true);
+    AllowArtifact = sConfigMgr->GetBoolDefault("Transmogrification.AllowArtifact", true);
     AllowHeirloom = sConfigMgr->GetBoolDefault("Transmogrification.AllowHeirloom", true);
 
-    AllowMixedArmorTypes = sConfigMgr->GetBoolDefault("Transmogrification.AllowMixedArmorTypes", false);
-    AllowMixedWeaponTypes = sConfigMgr->GetBoolDefault("Transmogrification.AllowMixedWeaponTypes", false);
+    AllowMixedArmorTypes = sConfigMgr->GetBoolDefault("Transmogrification.AllowMixedArmorTypes", true);
+    AllowMixedWeaponTypes = sConfigMgr->GetBoolDefault("Transmogrification.AllowMixedWeaponTypes", true);
     AllowFishingPoles = sConfigMgr->GetBoolDefault("Transmogrification.AllowFishingPoles", false);
 
     IgnoreReqRace = sConfigMgr->GetBoolDefault("Transmogrification.IgnoreReqRace", false);

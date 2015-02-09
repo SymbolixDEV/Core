@@ -895,7 +895,7 @@ void Spell::EffectTriggerSpell(SpellEffIndex effIndex)
                     if (((spell->DmgClass == SPELL_DAMAGE_CLASS_MAGIC && spell->GetSchoolMask() != SPELL_SCHOOL_MASK_NORMAL) // only affect magic spells
                         || (spell->GetDispelMask() & dispelMask)) &&
                         // ignore positive and passive auras
-                        !iter->second->IsPositive() && !iter->second->GetBase()->IsPassive()
+                        !iter->second->IsPositive() && !iter->second->GetBase()->IsPassive())
                     {
                         m_caster->RemoveAura(iter);
                     }

@@ -46,3 +46,6 @@ __________________________FIXED________________________________
 24.Fix Death Knight- Anti Magic Zone
 25.Fix Death Knight - Gargoyle Damage and Haste
 26.Fix - Crossfaction(Morph)
+27.Fix Warlock - Fel Guard
+28.Fix Druid - Savage Roar
+29.Fix Shaman - Lava Lash

@@ -1,6 +1,6 @@
+__________________________IMPLEMENT ON CORE______________________
 1.Implement - Transmogrifcation
 2.Implement - Crossfaction
-3.Fix - Crossfaction(Morph)
 4.Implement - 1vs1 Solo Queue 
 5.Implement - Arena Spectator
 6.Implement - Blizzlike CC Delay
@@ -12,29 +12,37 @@
 12.Implement Duel Reset
 13.Implement Reforging
 14.Implement Item Enchant Visuals
-15.Fix - Vanish remove combat
-16.Fix - Warlock: Glyph of Succubus - Improved Succubus (Talent).
-17.Fix - Master Call
-18.Fix - Shadowform Cooldown
-19.Fix - Spell Lock Silence
-20.Fix - Spell Reflection
-21.Fix - Hunter's Trap
-22.Fix - Death Grip
-23.Fix - Bladestorm Disarm Bug
-24.Fix - Bladestorm Cyclone Bug
-25.Fix - Hand of Freedom is now usable in CC, Stuns etc.
-26.Fix - Master Call 2
-27.Fix - Anti Magic Zone
-28.Fix - Gargoyle Damage and Haste
-29.Implement - Killstreak
-30.Implement - Lottery NPC
-31.Implement - Beastmastery NPC
-32.Implement - Professions NPC
-33.Implement - Utility Commands
-34.Implement - Token NPC 
-35.Fix Warrior Damage
+15.Implement - Killstreak
+16.Implement - Lottery NPC
+17.Implement - Beastmastery NPC
+18.Implement - Professions NPC
+19.Implement - Utility Commands
+20.Implement - Token NPC 
+__________________________FIXED________________________________
+1.Fix Warrior Damage
 	- Fix Compile on Warrior Damage Fix
-36.Fix Glyph of Envenom
-37.Fix Shadowdance
-38.Fix Glyph of Charge
-39.Fix Raise Dead Spell
+2.Fix Rogue - Glyph of Envenom
+3.Fix Rogue - Shadowdance
+4.Fix Warrior - Glyph of Charge
+5.Fix Death Knight - Raise Dead Spell
+6.Fix Priest - SP Bonus
+7.Fix Druid - Feral Charge Combat Issues
+8.Fix Paladin - Beacon of Light Combat Issues
+9.Fix Priest-  Shadowform.
+10.Fix Warrior - Check LoS for Whirlwind | Bladestorm
+11.Fix Priest - Check LoS for Mass Dispell
+12.Fix Rogue - Vanish remove combat
+13.Fix Warlock - Glyph of Succubus - Improved Succubus (Talent).
+14.Fix Hunter - Master Call
+15.Fix Priest - Shadowform Cooldown
+16.Fix Warlock - Spell Lock Silence
+17.Fix Warrior - Spell Reflection
+18.Fix Hunter - Traps
+19.Fix Death Knight - Death Grip
+20.Fix Warrior - Bladestorm Disarm Bug
+21.Fix Warrior - Bladestorm Cyclone Bug
+22.Fix Paladin - Hand of Freedom is now usable in CC, Stuns etc.
+23.Fix Hunter - Master Call 2
+24.Fix Death Knight- Anti Magic Zone
+25.Fix Death Knight - Gargoyle Damage and Haste
+26.Fix - Crossfaction(Morph)

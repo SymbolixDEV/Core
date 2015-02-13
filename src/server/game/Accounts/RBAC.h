@@ -691,6 +691,8 @@ enum RBACPermissions
 	RBAC_PERM_COMMAND_SPECTATE_RESET						= 1003,
 	RBAC_PERM_COMMAND_SPECTATE_LEAVE						= 1004,
 
+	RBAC_PERM_COMMAND_WORLD_CHAT                             = 1013,
+
     RBAC_PERM_MAX
 };
 

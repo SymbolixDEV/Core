@@ -11,7 +11,7 @@
 
 enum eEnums
 {
-	ITEM_LOTTO   = 200800,
+	ITEM_LOTTO   = 29434,
 	
 };
 

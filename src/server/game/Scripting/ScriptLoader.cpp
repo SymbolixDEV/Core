@@ -289,6 +289,7 @@ void AddSC_Top5_Killers();
 void AddSC_npc_enchant();
 void AddSC_login_script();
 void AddSC_fast_arena_start();
+void AddSC_npc_glyph_template();
 #endif
 
 void AddCustomScripts()
@@ -314,5 +315,6 @@ void AddCustomScripts()
 	AddSC_npc_enchant();
 	AddSC_login_script();
 	AddSC_fast_arena_start();
+	AddSC_npc_glyph_template();
 #endif
 }

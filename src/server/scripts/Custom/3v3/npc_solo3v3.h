@@ -1,10 +1,3 @@
-/*
- *
- * Copyright (C) 2014 Teiby
- * Written by Ladrek <Kargath-WoW>
- *
- */
-
 #ifndef SOLO_3V3_H
 #define SOLO_3V3_H
 

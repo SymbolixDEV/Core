@@ -1,10 +1,3 @@
-/*
- *
- * Copyright (C) 2014 Ladrek
- * Written by Ladrek <Kargath-WoW>
- *
- */
-
 #include "ScriptMgr.h"
 #include "ArenaTeamMgr.h"
 #include "Common.h"
@@ -74,7 +67,7 @@ public:
     }
 
 
-
+	//SymbolixDEV
     bool OnGossipSelect(Player* player, Creature* me, uint32 /*uiSender*/, uint32 uiAction)
     {
         if(!player || !me)
@@ -100,7 +93,7 @@ public:
                 }
                 break;
 
-            case 2: // 3v3 Join Queue Arena (rated)
+            case 2: // 3v3 Join Queue Arena (rated) //SymbolixDEV
                 {
                     // check Deserter debuff
                         if (player->HasAura(26013) && 

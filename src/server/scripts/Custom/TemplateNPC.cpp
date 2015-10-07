@@ -1,3 +1,8 @@
+/*
+www.curseofdoom.eu for test
+*/
+
+
 #include "ScriptPCH.h"
 #include "TemplateNPC.h"
 

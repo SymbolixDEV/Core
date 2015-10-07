@@ -926,7 +926,7 @@ class npc_support : public CreatureScript
                     }
 				case 400: // This case will send the support message for "How Do I get Gold?"
 					{
-						ChatHandler(pPlayer->GetSession()).PSendSysMessage("You need get VIP Account? First you invite 7 people and donate for 5$ ", pPlayer->GetName());
+						ChatHandler(pPlayer->GetSession()).PSendSysMessage("You need get VIP Account? 1.You need play on this server 2 week. 2.You Need invite 10 peoples to server and will be rewarded with vip account$ ", pPlayer->GetName());
 						pPlayer->PlayerTalkClass->SendCloseGossip();
 					}break;
 				case 500: // This case will send the support message for "How Do I Make A Ticket?
@@ -937,7 +937,7 @@ class npc_support : public CreatureScript
 					}break;
 				case 600: // This case will send the support message for "How do i get shadowmourne"
 					{
-						ChatHandler(pPlayer->GetSession()).PSendSysMessage("You can get Shadowmourne with Donate-10$!", pPlayer->GetName());
+						ChatHandler(pPlayer->GetSession()).PSendSysMessage("You can't get Shadowmourne - Disabled for more stable server!", pPlayer->GetName());
 						pPlayer->PlayerTalkClass->SendCloseGossip();
 					}break;
 					

@@ -28,6 +28,13 @@ set(scripts_STAT_SRCS
 	Custom/lotto.cpp
 	Custom/npc_token.cpp
 	Custom/npc_profession.cpp
+	Custom/demetria.cpp
+	Custom/3v3/npc_solo3v3.cpp
+	Custom/3v3/npc_solo3v3.h
+	Custom/mall/guid_ally.cpp
+	Custom/mall/guid_hord.cpp
+	Custom/TemplateNPC.cpp
+	Custom/TemplateNPC.h
 )
 
 message("  -> Prepared: Custom")

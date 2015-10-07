@@ -21841,7 +21841,7 @@ uint32 Player::GetMaxPersonalArenaRatingRequirement(uint32 minarenaslot) const
     uint32 max_personal_rating = 0;
     for (uint8 i = minarenaslot; i < MAX_ARENA_SLOT; ++i)
     {
-		if(i == 2 && sWorld->getBoolConfig(CONFIG_ARENA_1V1_VENDOR_RATING) == false) continue;
+		if (i == 2 && sWorld->getBoolConfig(CONFIG_SOLO_3V3_VENDOR_RATING) == false) continue;
         if (ArenaTeam* at = sArenaTeamMgr->GetArenaTeamById(GetArenaTeamId(i)))
         {
             uint32 p_rating = GetArenaPersonalRating(i);
@@ -22324,26 +22324,27 @@ void Player::SetBGTeam(uint32 team)
 
 void Player::LeaveBattleground(bool teleportToEntryPoint)
 {
-    if (Battleground* bg = GetBattleground())
-    {
-        bg->RemovePlayerAtLeave(GetGUID(), teleportToEntryPoint, true);
+	if (Battleground* bg = GetBattleground())
+	{
+		bg->RemovePlayerAtLeave(GetGUID(), teleportToEntryPoint, true);
+		// call after remove to be sure that player resurrec// returns the maximal personal arena rating that can be used to purchase items requiring this conditionted for correct cast
+		//if (bg->isBattleground() && !isGameMaster() && sWorld->getBoolConfig(CONFIG_BATTLEGROUND_CAST_DESERTER))
+		if ((bg->isBattleground() || bg->GetArenaType() == ARENA_TYPE_3v3_SOLO && sWorld->getBoolConfig(CONFIG_SOLO_3V3_CAST_DESERTER_ON_LEAVE))
+			&& !IsGameMaster() && sWorld->getBoolConfig(CONFIG_BATTLEGROUND_CAST_DESERTER))
+		{
+			if (bg->GetStatus() == STATUS_IN_PROGRESS || bg->GetStatus() == STATUS_WAIT_JOIN)
+			{
+				//lets check if player was teleported from BG and schedule delayed Deserter spell cast
+				if (IsBeingTeleportedFar())
+				{
+					ScheduleDelayedOperation(DELAYED_SPELL_CAST_DESERTER);
+					return;
+				}
 
-        // call after remove to be sure that player resurrected for correct cast
-        if (bg->isBattleground() && !IsGameMaster() && sWorld->getBoolConfig(CONFIG_BATTLEGROUND_CAST_DESERTER))
-        {
-            if (bg->GetStatus() == STATUS_IN_PROGRESS || bg->GetStatus() == STATUS_WAIT_JOIN)
-            {
-                //lets check if player was teleported from BG and schedule delayed Deserter spell cast
-                if (IsBeingTeleportedFar())
-                {
-                    ScheduleDelayedOperation(DELAYED_SPELL_CAST_DESERTER);
-                    return;
-                }
-
-                CastSpell(this, 26013, true);               // Deserter
-            }
-        }
-    }
+				CastSpell(this, 26013, true);               // Deserter
+			}
+		}
+	}
 }
 
 bool Player::CanJoinToBattleground(Battleground const* bg) const

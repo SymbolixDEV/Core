@@ -32,7 +32,7 @@ static bool Arena1v1CheckTalents(Player* player)
 	if(!player)
 		return false;
 
-	if(sWorld->getBoolConfig(CONFIG_ARENA_1V1_BLOCK_FORBIDDEN_TALENTS) == false)
+//	if(sWorld->getBoolConfig(CONFIG_ARENA_1V1_BLOCK_FORBIDDEN_TALENTS) == false)
 		return true;
 
 	uint32 count = 0;

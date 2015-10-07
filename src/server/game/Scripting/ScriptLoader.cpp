@@ -290,6 +290,11 @@ void AddSC_npc_enchant();
 void AddSC_login_script();
 void AddSC_fast_arena_start();
 void AddSC_npc_glyph_template();
+void AddSC_npc_solo3v3();
+void AddSC_Arena_AntiDraw();
+void AddSC_Mall_GuideA();
+void AddSC_Mall_Guide();
+void AddSC_TemplateNPC();
 #endif
 
 void AddCustomScripts()
@@ -316,5 +321,10 @@ void AddCustomScripts()
 	AddSC_login_script();
 	AddSC_fast_arena_start();
 	AddSC_npc_glyph_template();
+	AddSC_npc_solo3v3();
+	AddSC_Arena_AntiDraw();
+	AddSC_Mall_GuideA();
+	AddSC_Mall_Guide();
+	AddSC_TemplateNPC();
 #endif
 }

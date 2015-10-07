@@ -29,7 +29,7 @@ public:
 		if(!player || !me)
 			return false;
 
-		if(sWorld->getIntConfig(CONFIG_ARENA_1V1_MIN_LEVEL) > player->getLevel())
+//		if(sWorld->getIntConfig(CONFIG_ARENA_1V1_MIN_LEVEL) > player->getLevel())
 			return false;
 
 		uint64 guid = player->GetGUID();
@@ -168,7 +168,7 @@ public:
 		if(!player || !me)
 			return true;
 
-		if(sWorld->getBoolConfig(CONFIG_ARENA_1V1_ENABLE) == false)
+//		if(sWorld->getBoolConfig(CONFIG_ARENA_1V1_ENABLE) == false)
 		{
 			ChatHandler(player->GetSession()).SendSysMessage("1v1 disabled!");
 			return true;
@@ -180,8 +180,8 @@ public:
 			player->ADD_GOSSIP_ITEM(GOSSIP_ICON_CHAT, "Sign up 1v1 Arena (unrated)", GOSSIP_SENDER_MAIN, 20);
 
 		if(player->GetArenaTeamId(ArenaTeam::GetSlotByType(ARENA_TEAM_5v5)) == NULL)
-			player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_CHAT, "Create new 1v1 Arenateam", GOSSIP_SENDER_MAIN, 1, "Create 1v1 arenateam?", sWorld->getIntConfig(CONFIG_ARENA_1V1_COSTS), false);
-		else
+//			player->ADD_GOSSIP_ITEM_EXTENDED(GOSSIP_ICON_CHAT, "Create new 1v1 Arenateam", GOSSIP_SENDER_MAIN, 1, "Create 1v1 arenateam?", sWorld->getIntConfig(CONFIG_ARENA_1V1_COSTS), false);
+//		else
 		{
 			if(player->InBattlegroundQueueForBattlegroundQueueType(BATTLEGROUND_QUEUE_5v5) == false)
 			{
@@ -210,14 +210,14 @@ public:
         {
 		case 1: // Create new Arenateam
 			{
-				if(sWorld->getIntConfig(CONFIG_ARENA_1V1_MIN_LEVEL) <= player->getLevel())
+//				if(sWorld->getIntConfig(CONFIG_ARENA_1V1_MIN_LEVEL) <= player->getLevel())
 				{
-					if(player->GetMoney() >= sWorld->getIntConfig(CONFIG_ARENA_1V1_COSTS) && CreateArenateam(player, me))
-						player->ModifyMoney(sWorld->getIntConfig(CONFIG_ARENA_1V1_COSTS) * -1);
+//					if(player->GetMoney() >= sWorld->getIntConfig(CONFIG_ARENA_1V1_COSTS) && CreateArenateam(player, me))
+//						player->ModifyMoney(sWorld->getIntConfig(CONFIG_ARENA_1V1_COSTS) * -1);
 				}
-				else
+//				else
 				{
-					ChatHandler(player->GetSession()).PSendSysMessage("You need level %u+ to create an 1v1 arenateam.", sWorld->getIntConfig(CONFIG_ARENA_1V1_MIN_LEVEL));
+//					ChatHandler(player->GetSession()).PSendSysMessage("You need level %u+ to create an 1v1 arenateam.", sWorld->getIntConfig(CONFIG_ARENA_1V1_MIN_LEVEL));
 					player->CLOSE_GOSSIP_MENU();
 					return true;
 				}
@@ -226,7 +226,7 @@ public:
 
 		case 2: // Join Queue Arena (rated)
 			{
-				if(Arena1v1CheckTalents(player) && JoinQueueArena(player, me, true) == false)
+//				if(Arena1v1CheckTalents(player) && JoinQueueArena(player, me, true) == false)
 					ChatHandler(player->GetSession()).SendSysMessage("Something went wrong while join queue.");
 				
 				player->CLOSE_GOSSIP_MENU();

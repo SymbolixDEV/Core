@@ -1,3 +1,6 @@
+NOT PLAYABLE !!
+
+
 # ![logo](http://www.trinitycore.org/f/public/style_images/1_trinitycore.png) TrinityCore
 
 
